@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Ticket - GPF</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ticketsPrueba.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <main>
+        <h1>Crea tu ticket</h1>
+        <form id="ticket-form" action="/crear-ticket" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nombreAplicacion">Nombre del aplicativo o Servicio</label>
+                <input type="text" id="nombreAplicacion" name="nombreAplicacion" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="archivos">Archivos de respaldo</label>
+                <input type="file" id="archivos" name="archivos">
+            </div>
+            <div class="form-group">
+                <label for="prioridad">Prioridad</label>
+                <select id="prioridad" name="prioridad" required>
+                    <option value="">Seleccionar</option>
+                    <option value="Crítico">Crítico</option>
+                    <option value="Importante">Importante</option>
+                    <option value="Baja">Baja</option>
+                </select>
+            </div>
+            <button type="submit">Crear</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "_loginlayout";
+}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 w-50 shadow" style="max-width: 400px; border-radius: 10px;">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4" style="color: #007BFF;">Login</h5>
+            <form asp-action="ValidarUsuario">
+                <div class="form-group mb-3">
+                    <label for="usuario" class="form-label" style="color: #343a40;">Usuario</label>
+                    @Html.TextBox("usuario", "", new { @class = "form-control", @id = "usuario", @style = "border-radius: 5px;" })
+                </div>
+                <div class="form-group mb-3">
+                    <label for="clave" class="form-label" style="color: #343a40;">Clave</label>
+                    @Html.Password("clave", "", new { @class = "form-control", @id = "clave", @style = "border-radius: 5px;" })
+                </div>
+
+                @if (ViewBag.Mensaje != "")
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.Mensaje
+                    </div>
+                }
+
+                <div class="d-grid gap-2">
+                    <input type="submit" class="btn btn-primary btn-block" value="Iniciar Sesion" style="border-radius: 5px; background-color: #007BFF; border-color: #007BFF;" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Agregar enlace a Bootstrap CSS en tu layout -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+
